@@ -25,11 +25,22 @@ export default function Navbar() {
         position="static"
         color="inherit"
         style={{
-          backgroundColor: "#111111",
-          backgroundImage:
-            "linear-gradient(32deg, rgba(8, 8, 8, 0.74) 30px, transparent)",
-          backgroundSize: "60px 60px",
-          backgroundPosition: "-5px -5px",
+          "--s": "200px",
+          "--c1": "#101010",
+          "--c2": "#101010",
+          "--c3": "#101010",
+          background: `repeating-conic-gradient(
+            from 30deg,
+            #0000 0 120deg,
+            var(--c3) 0 180deg
+          ) calc(0.5 * var(--s)) calc(0.5 * var(--s) * 0.577),
+          repeating-conic-gradient(
+            from 30deg,
+            var(--c1) 0 60deg,
+            var(--c2) 0 120deg,
+            var(--c3) 0 180deg
+          )`,
+          backgroundSize: `var(--s) calc(var(--s) * 0.577)`,
         }}
       >
         <Toolbar

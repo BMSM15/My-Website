@@ -27,14 +27,24 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-color: #111111;
-  background-image: linear-gradient(
-    32deg,
-    rgba(8, 8, 8, 0.74) 30px,
-    transparent
-  );
-  background-size: 60px 60px;
-  background-position: -5px -5px;
+  --s: 200px; /* control the size */
+  --c1: #101010;
+  --c2: #101010;
+  --c3: #101010;
+
+  background: repeating-conic-gradient(
+        from 30deg,
+        #0000 0 120deg,
+        var(--c3) 0 180deg
+      )
+      calc(0.5 * var(--s)) calc(0.5 * var(--s) * 0.577),
+    repeating-conic-gradient(
+      from 30deg,
+      var(--c1) 0 60deg,
+      var(--c2) 0 120deg,
+      var(--c3) 0 180deg
+    );
+  background-size: var(--s) calc(var(--s) * 0.577);
 }
 
 .introduction {
@@ -103,7 +113,6 @@
   background-position: right;
   background-repeat: no-repeat;
   background-size: cover;
-  backdrop-filter: blur(24px);
   border-radius: 10px;
   overflow: hidden;
   outline: 2px solid white;
@@ -151,9 +160,9 @@
   align-items: center;
   justify-content: center;
   --s: 200px; /* control the size */
-  --c1: #1d1d1d;
-  --c2: #4e4f51;
-  --c3: #3c3c3c;
+  --c1: #101010;
+  --c2: #131212;
+  --c3: #000000;
 
   background: repeating-conic-gradient(
         from 30deg,
@@ -170,6 +179,59 @@
   background-size: var(--s) calc(var(--s) * 0.577);
 }
 
+.about_me {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.about_me h1 {
+  font-family: "Open Sans";
+  font-size: 42px;
+  color: #0db7dc;
+  font-weight: 1000;
+  line-height: 1.5;
+  letter-spacing: 0.5px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.about_me p {
+  font-family: "Open Sans";
+  font-size: 14px;
+  font-weight: 300;
+  letter-spacing: 1.2px;
+  line-height: 1.6;
+  text-align: start;
+  width: 85%;
+  color: white;
+  margin-bottom: 50px;
+  max-width: 100%;
+  min-width: 50%;
+  padding-left: 20px;
+  padding-right: 20px;
+  animation: fadeIn 2s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.about_me span {
+  font-family: "Open Sans";
+  font-size: 14px;
+  color: #0db7dc;
+  font-weight: 600;
+  line-height: 1.6;
+  letter-spacing: 1.2px;
+}
+
 .card1 {
   position: relative;
   width: 200px;
@@ -179,12 +241,13 @@
   overflow: hidden;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
   transition: all 1s ease-in-out;
+  margin-bottom: 20px;
 }
 
 .background {
   position: absolute;
   inset: 0;
-  background-image: url("../../components/images/profile_image.jpg");
+  background-image: url("../../components/images/profile_image2.webp");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
